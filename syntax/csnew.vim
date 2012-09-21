@@ -20,7 +20,7 @@ set cpo&vim
 
 
 " type
-syn keyword csType			bool byte char decimal double float int long object sbyte short string uint ulong ushort void
+syn keyword csType			bool byte char decimal double float int long object sbyte short string uint ulong ushort void var
 " storage
 syn keyword csStorage			class delegate enum interface namespace struct
 " repeat / condition / label

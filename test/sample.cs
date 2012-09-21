@@ -25,5 +25,6 @@ public partial class Car : IVehicle
     public void Run()
     {
         var status = Engine.Start(x => x.Bob == true);
+        int bob = 32;
     }
 }
