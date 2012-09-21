@@ -48,6 +48,7 @@ syn keyword csUnspecifiedKeyword	explicit implicit
 " Linq Keywords
 syn keyword csLinq                      from where select group into orderby join let in on equals by ascending descending
 
+syn keyword csAsync                     async await
 
 " Contextual Keywords
 syn match csContextualStatement	/\<yield[[:space:]\n]\+\(return\|break\)/me=s+5
@@ -130,6 +131,7 @@ hi def link csUnspecifiedStatement	Statement
 hi def link csUnsupportedStatement	Statement
 hi def link csUnspecifiedKeyword	Keyword
 hi def link csLinq                      Keyword
+hi def link csAsync                     Keyword
 hi def link csContextualStatement	Statement
 hi def link csOperatorError		Error
 

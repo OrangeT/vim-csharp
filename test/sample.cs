@@ -32,5 +32,12 @@ public partial class Car : IVehicle
         var items = from e in db.Entities
             where e.Id == 1
             select e;
+
+        var content = await RunAsync();
+    }
+
+    private async void RunAsync()
+    {
+    
     }
 }
