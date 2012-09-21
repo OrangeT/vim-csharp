@@ -2,7 +2,7 @@
 " Language:	C#
 " Maintainer:	Anduin Withers <awithers@anduin.com>
 " Former Maintainer:	Johannes Zellner <johannes@zellner.org>
-" Last Change:	Fri Aug 14 13:56:37 PDT 2009
+" Last Change:	Fri Sep 21 21:00:00 GMT 2012
 " Filenames:	*.cs
 " $Id: cs.vim,v 1.4 2006/05/03 21:20:02 vimboss Exp $
 "
@@ -18,11 +18,12 @@ endif
 let s:cs_cpo_save = &cpo
 set cpo&vim
 
-
 " type
 syn keyword csType			bool byte char decimal double float int long object sbyte short string uint ulong ushort void var
 " storage
-syn keyword csStorage			class delegate enum interface namespace struct
+syn keyword csTypeDecleration           class enum struct nextgroup=csClass skipwhite
+syn keyword csInterfaceDecleration      interface nextgroup=csIface skipwhite
+syn keyword csStorage			delegate interface namespace struct
 " repeat / condition / label
 syn keyword csRepeat			break continue do for foreach goto return while
 syn keyword csConditional		else if switch
@@ -39,7 +40,7 @@ syn keyword csConstant			false null true
 syn keyword csException			try catch finally throw
 
 " TODO:
-syn keyword csUnspecifiedStatement	as base checked event fixed in is lock new operator out params ref sizeof stackalloc this typeof unchecked unsafe using
+syn keyword csUnspecifiedStatement	as base checked event fixed in is lock operator out params ref sizeof stackalloc this typeof unchecked unsafe using
 " TODO:
 syn keyword csUnsupportedStatement	add remove value
 " TODO:
@@ -48,6 +49,7 @@ syn keyword csUnspecifiedKeyword	explicit implicit
 " Linq Keywords
 syn keyword csLinq                      from where select group into orderby join let in on equals by ascending descending
 
+" Async Keywords
 syn keyword csAsync                     async await
 
 " Contextual Keywords
@@ -55,7 +57,15 @@ syn match csContextualStatement	/\<yield[[:space:]\n]\+\(return\|break\)/me=s+5
 syn match csContextualStatement	/\<partial[[:space:]\n]\+\(class\|struct\|interface\)/me=s+7
 syn match csContextualStatement	/\<\(get\|set\);/me=s+3
 syn match csContextualStatement	/\<\(get\|set\)[[:space:]\n]*{/me=s+3
-syn match csContextualStatement	/\<where\>[^:]\+:/me=s+5
+syn match csContextualStatement /\<where\>[^:]\+:/me=s+5
+
+"New Declerations
+syn keyword csNewDecleration            new nextgroup=csClass skipwhite
+
+"Interface  & Class Identifier
+syn match csClass contained       /[A-Z]\w\+/ nextgroup=csGeneric
+syn match csIface                 /I[A-Z]\w\+/ nextgroup=csGeneric
+syn region csGeneric contained start="<" end=">" contains=csIface,csClass
 
 " Comments
 "
@@ -120,6 +130,9 @@ syn match   csNumber		"\<\d\+\([eE][-+]\=\d\+\)\=[fFdD]\>"
 
 " The default highlighting.
 hi def link csType			Type
+hi def link csTypeDecleration		StorageClass
+hi def link csInterfaceDecleration      StorageClass
+hi def link csNewDecleration            StorageClass
 hi def link csStorage			StorageClass
 hi def link csRepeat			Repeat
 hi def link csConditional		Conditional
@@ -134,6 +147,9 @@ hi def link csLinq                      Keyword
 hi def link csAsync                     Keyword
 hi def link csContextualStatement	Statement
 hi def link csOperatorError		Error
+
+hi def link csIface                     Type
+hi def link csClass                     Type
 
 hi def link csTodo			Todo
 hi def link csComment			Comment
@@ -155,7 +171,7 @@ hi def link csXmlCommentLeader		Comment
 hi def link csXmlComment		Comment
 hi def link csXmlTag			Statement
 
-let b:current_syntax = "csnew"
+let b:current_syntax = "cs"
 
 let &cpo = s:cs_cpo_save
 unlet s:cs_cpo_save
