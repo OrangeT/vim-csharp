@@ -26,5 +26,11 @@ public partial class Car : IVehicle
     {
         var status = Engine.Start(x => x.Bob == true);
         int bob = 32;
+
+        var hal = new List<Bob> { Cal = 32; };
+
+        var items = from e in db.Entities
+            where e.Id == 1
+            select e;
     }
 }
