@@ -1,12 +1,9 @@
 " Vim syntax file
-" Language:	C#
-" Maintainer:	Anduin Withers <awithers@anduin.com>
-" Former Maintainer:	Johannes Zellner <johannes@zellner.org>
-" Last Change:	Fri Sep 21 21:00:00 GMT 2012
-" Filenames:	*.cs
-" $Id: cs.vim,v 1.4 2006/05/03 21:20:02 vimboss Exp $
-"
-" C# 2 and 3 extensions: Kian Ryan (kian@orangetentacle.co.uk)
+" Language:             Microsoft C#
+" Maintainer:           Kian Ryan (kian@orangetentacle.co.uk)
+" Former Maintainer:    Anduin Withers (awithers@anduin.com)
+" Last Change:          2012 Sep 22
+" Filenames:            *.cs
 "
 " REFERENCES:
 " [1] ECMA TC39: C# Language Specification (WD13Oct01.doc)

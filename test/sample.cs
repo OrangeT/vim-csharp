@@ -21,6 +21,7 @@ namespace OrangeTentacle.Sample
     {
         public string Name { get; set; }
 
+        [Serialize]
         public string OtherName
         {
             get;

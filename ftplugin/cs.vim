@@ -10,3 +10,5 @@ if ! exists('b:current_compiler')
         compiler cs
     endif
 endif
+
+set syntax=cs
