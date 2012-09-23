@@ -67,7 +67,5 @@ Todo
 ====
 
 * Highlighting of types in attributes.
-* Explicit override of compiler framework version.
-* Explicit override of project file and targets.
 * Adding and removing classes/files from projects and solutions (hook into NERDTree?)
 * Add syntax/region support for razor files.
