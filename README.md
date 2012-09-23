@@ -36,6 +36,33 @@ See second screenshot above for overview.
 
 _(Note: This feature does not look for msbuild.exe in your path, but looks directly in c:/windows/Microsoft.NET for a msbuild.exe.)_
 
+Custom Build/Solution File 
+==========================
+
+To use your own build file, call the following command:
+
+```
+:MsProjFile [path to build file]
+```
+
+Custom Framework Version
+========================
+
+Framework version can be overriden with the following:
+```
+:MsVersion [4, 3.5, 2, 1]
+```
+
+Passing Parameters to :make
+===========================
+
+You can pass parameters to :make which will in turn pass them to MsBuild.  This is useful for passing a variety of options, incluing a custom target for testing:
+
+```
+:MsProjFile build.proj
+:make /target:Test
+```
+
 Todo
 ====
 
