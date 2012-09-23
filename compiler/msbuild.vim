@@ -17,9 +17,16 @@ CompilerSet errorformat+=%f(%l\\,%v):\ %t%*[^:]:\ %m,
             \%trror%*[^:]:\ %m,
             \%tarning%*[^:]:\ %m
 
-execute 'CompilerSet makeprg=' . GetMsCompiler("msbuild.exe") . "\\ " 
+
+if exists("g:net_build_file")
+    let s:build_file = g:net_build_file
+else
+    let s:build_file = cs#find_net_solution_file()
+endif
+
+execute 'CompilerSet makeprg=' . cs#get_net_compiler("msbuild.exe") . "\\ " 
             \ . "/nologo\\ /clp:Verbosity=minimal\\ /property:GenerateFullPaths=true\\ "
-            \ . FindMsSolutionFile() 
+            \ . s:build_file
 
 
 

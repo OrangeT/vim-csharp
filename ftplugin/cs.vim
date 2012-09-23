@@ -4,7 +4,7 @@
 " Last Change:  2012 Sep 22
 
 if ! exists('b:current_compiler')
-    if FindMsSolutionFile() != ""
+    if cs#find_net_solution_file() != ""
         compiler msbuild
     else
         compiler cs
