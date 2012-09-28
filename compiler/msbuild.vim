@@ -25,7 +25,7 @@ else
 endif
 
 execute 'CompilerSet makeprg=' . cs#get_net_compiler("msbuild.exe") . "\\ " 
-            \ . "/nologo\\ /clp:Verbosity=minimal\\ /property:GenerateFullPaths=true\\ "
+            \ . "/nologo\\ /clp:Verbosity=quiet\\ /property:GenerateFullPaths=true\\ "
             \ . s:build_file
 
 
