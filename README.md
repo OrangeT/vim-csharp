@@ -9,6 +9,23 @@ This Vim bundle extends Vim's built in support for CSharp files.
 <img src="https://raw.github.com/OrangeT/vim-csharp/master/screenshot2.png" width="459" height="343" />
 </a>
 
+Installation
+============
+
+If you don't have a preferred installation method, I recommend installing [pathogen.vim](https://github.com/tpope/vim-pathogen), and then simply copy and paste:
+
+OS X:
+```
+cd ~/.vim/bundle
+git clone git://github.com/oranget/vim-csharp.git
+```
+
+Windows:
+```
+cd c:\users\[username]\vimfiles\bundle
+git clone git://github.com/oranget/vim-csharp.git
+```
+
 
 Syntax Highlighting
 ===================
