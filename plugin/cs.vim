@@ -13,6 +13,10 @@ function! MsVersion(version)
     compiler msbuild
 endfunction
 
+function! IISExpress()
+    e ~\Documents\IISExpress\config\applicationhost.config
+endfunction
+
 " Set msproj file extensions
 au BufNewFile,BufRead *.proj set filetype=xml
 au BufNewFile,BufRead *.csproj set filetype=xml
@@ -20,3 +24,4 @@ au BufNewFile,BufRead *.sln set filetype=xml
 
 com! -complete=file -nargs=1 MsProjFile :call MsProjFile(<f-args>)
 com! -nargs=1 MsVersion :call MsVersion(<f-args>)
+com! IISExpress :call IISExpress()
