@@ -17,7 +17,7 @@ namespace OrangeTentacle.Sample
     {
     }
 
-    public partial class Car : IVehicle
+    public partial class Car : Bus, IVehicle
     {
         public string Name { get; set; }
 
@@ -39,13 +39,17 @@ namespace OrangeTentacle.Sample
         {
         }
 
-        public void Run()
+        public void Run(List<Bob> bob, List<Bob> bob2)
         {
             var status = Engine.Start(x => x.Bob == true);
             int bob = 32;
 
             var hal = new List<Bob,List<Carl>> { Cal = 32; };
             var ral = new List<Bob,List<ICarl>> { Cal = 32; };
+
+            List<Bob, List<ICarl>> list = new List<Bob, List<ICarl>> { Cal = 32 };
+
+            var type = typeof(List<Bob, List<ICarl>>);
 
             var items = from e in db.Entities
                 where e.Id == 1

@@ -19,8 +19,8 @@ set cpo&vim
 syn keyword csType			bool byte char decimal double float int long object sbyte short string uint ulong ushort void var
 " storage
 syn keyword csTypeDecleration           class enum struct nextgroup=csClass skipwhite
-syn keyword csInterfaceDecleration      interface nextgroup=csIface skipwhite
 syn keyword csStorage			delegate interface namespace struct
+syn keyword csInterfaceDecleration      interface nextgroup=csIface skipwhite
 " repeat / condition / label
 syn keyword csRepeat			break continue do for foreach goto return while
 syn keyword csConditional		else if switch
@@ -37,11 +37,13 @@ syn keyword csConstant			false null true
 syn keyword csException			try catch finally throw
 
 " TODO:
-syn keyword csUnspecifiedStatement	as base checked event fixed in is lock operator out params ref sizeof stackalloc this typeof unchecked unsafe using
+syn keyword csUnspecifiedStatement	as base checked event fixed in is lock operator out params ref sizeof stackalloc this unchecked unsafe using 
 " TODO:
 syn keyword csUnsupportedStatement	add remove value
 " TODO:
 syn keyword csUnspecifiedKeyword	explicit implicit
+
+syn keyword csTypeOf                    typeof nextgroup=csEnclosed
 
 " Linq Keywords
 syn keyword csLinq                      from where select group into orderby join let in on equals by ascending descending
@@ -61,8 +63,11 @@ syn keyword csNewDecleration            new nextgroup=csClass skipwhite
 
 "Interface  & Class Identifier
 syn match csClass contained       /[A-Z]\w\+/ nextgroup=csGeneric
-syn match csIface                 /I[A-Z]\w\+/ nextgroup=csGeneric
-syn region csGeneric contained start="<" end=">" contains=csIface,csClass
+syn match csIface contained       /I[A-Z]\w\+/ nextgroup=csGeneric
+syn region csGeneric start="<" end=">" contains=csIface,csClass
+syn region csEnclosed start="(" end=")" contains=csIface,csClass
+syn region csInherits start=":" end="}" contains=csIface,csClass
+
 
 " Comments
 "
@@ -162,6 +167,7 @@ hi def link csSpecialChar		SpecialChar
 hi def link csNumber			Number
 hi def link csUnicodeNumber		SpecialChar
 hi def link csUnicodeSpecifier		SpecialChar
+hi def link csTypeOf                    Keyword
 
 " xml markup
 hi def link csXmlCommentLeader		Comment
