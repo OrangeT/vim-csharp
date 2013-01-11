@@ -62,11 +62,11 @@ syn match csContextualStatement /\<where\>[^:]\+:/me=s+5
 syn keyword csNewDecleration            new nextgroup=csClass skipwhite
 
 "Interface  & Class Identifier
-syn match csClass contained       /[A-Z]\w\+/ nextgroup=csGeneric
-syn match csIface contained       /I[A-Z]\w\+/ nextgroup=csGeneric
+syn match csClass contained       /\<[A-Z]\w\+/ nextgroup=csGeneric
+syn match csIface contained       /\<I[A-Z]\w\+/ nextgroup=csGeneric
 syn region csGeneric start="<" end=">" contains=csIface,csClass
 syn region csEnclosed start="(" end=")" contains=csIface,csClass
-syn region csInherits start=":" end="}" contains=csIface,csClass
+syn region csInherits start=":" end="{" contains=csIface,csClass
 
 
 " Comments
