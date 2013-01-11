@@ -41,11 +41,14 @@ namespace OrangeTentacle.Sample
         {
         }
 
+        [Bind(Name="Mark",
+                Second="Harris")]
         public Engine StartEngine()
         {
         
         }
 
+        [Bind(Name="Bob Harris")]
         public void Run(List<Bob> bob, List<Bob> bob2)
         {
             var status = Engine.Start(x => x.Bob == true);
