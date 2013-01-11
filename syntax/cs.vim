@@ -69,7 +69,7 @@ syn region csEnclosed start="(" end=")" contains=csIface,csClass
 syn region csInherits start=":" end="{" contains=csIface,csClass
 
 " Attributes
-syn region csAttributeLine start="^\s*\[" end="\]\s*$" contains=csString
+syn region csAttributeLine start="^\s*\[" end="\]\s*$" contains=csString, csCharacter, csNumber, csType
 
 
 " Comments
