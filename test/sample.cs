@@ -19,6 +19,8 @@ namespace OrangeTentacle.Sample
 
     public partial class Car : Bus, IVehicle
     {
+        const string ICONSTANT = "This is a constant";
+
         public string Name { get; set; }
 
         [Serialize]
@@ -50,6 +52,8 @@ namespace OrangeTentacle.Sample
             List<Bob, List<ICarl>> list = new List<Bob, List<ICarl>> { Cal = 32 };
 
             var type = typeof(List<Bob, List<ICarl>>);
+            
+            var runMethod = Run(ICONSTANT);
 
             var items = from e in db.Entities
                 where e.Id == 1
