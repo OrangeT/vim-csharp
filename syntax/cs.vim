@@ -30,7 +30,7 @@ syn match csOperatorError		display +::+
 " user labels (see [1] 8.6 Statements)
 syn match   csLabel			display +^\s*\I\i*\s*:\([^:]\)\@=+
 " modifier
-syn keyword csModifier			abstract const extern internal override private protected public readonly sealed static virtual volatile
+syn keyword csModifier			abstract const extern internal override private protected public readonly sealed static virtual volatile nextgroup=CsClass,CsIface skipwhite
 " constant
 syn keyword csConstant			false null true
 " exception

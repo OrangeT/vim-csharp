@@ -41,6 +41,11 @@ namespace OrangeTentacle.Sample
         {
         }
 
+        public Engine StartEngine()
+        {
+        
+        }
+
         public void Run(List<Bob> bob, List<Bob> bob2)
         {
             var status = Engine.Start(x => x.Bob == true);
