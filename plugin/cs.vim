@@ -18,9 +18,10 @@ function! IISExpress()
 endfunction
 
 " Set msproj file extensions
-au BufNewFile,BufRead *.proj set filetype=xml
-au BufNewFile,BufRead *.csproj set filetype=xml
-au BufNewFile,BufRead *.sln set filetype=xml
+au BufNewFile,BufRead *.proj compiler msbuild | set filetype=xml
+au BufNewFile,BufRead *.csproj compiler msbuild | set filetype=xml
+au BufNewFile,BufRead *.sln compiler msbuild | set filetype=xml
+au BufNewFile,BufRead *.cshtml compiler msbuild
 
 com! -complete=file -nargs=1 MsProjFile :call MsProjFile(<f-args>)
 com! -nargs=1 MsVersion :call MsVersion(<f-args>)
