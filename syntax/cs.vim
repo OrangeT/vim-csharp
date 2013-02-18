@@ -16,7 +16,7 @@ let s:cs_cpo_save = &cpo
 set cpo&vim
 
 " type
-syn keyword csType			bool byte char decimal double float int long object sbyte short string uint ulong ushort void var
+syn keyword csType			bool byte char decimal double float int long object sbyte short string uint ulong ushort void var dynamic
 " storage
 syn keyword csTypeDecleration           class enum struct nextgroup=csClass skipwhite
 syn keyword csStorage			delegate interface namespace struct
@@ -66,7 +66,7 @@ syn match csClass contained       /\<[A-Z][a-z]\w\+/ nextgroup=csGeneric
 syn match csIface contained       /\<I[A-Z][a-z]\w\+/ nextgroup=csGeneric
 syn region csGeneric start="<" end=">" contains=csIface,csClass
 syn region csEnclosed start="(" end=")" contains=csConstant,csType,csString, csCharacter, csNumber,csIface,csClass
-syn region csInherits start=":" end="{" contains=csIface,csClass
+"syn region csInherits start=":" end="{" contains=csIface,csClass
 
 " Attributes
 syn region csAttributeLine start="^\s*\[" end="\]\s*$" contains=csString, csCharacter, csNumber, csType
