@@ -17,13 +17,13 @@ If you don't have a preferred installation method, I recommend installing [patho
 OS X/Linux:
 ```
 cd ~/.vim/bundle
-git clone git://github.com/oranget/vim-csharp.git
+git clone git://github.com/OrangeT/vim-csharp.git
 ```
 
 Windows:
 ```
 cd c:\users\[username]\vimfiles\bundle
-git clone git://github.com/oranget/vim-csharp.git
+git clone git://github.com/OrangeT/vim-csharp.git
 ```
 
 
