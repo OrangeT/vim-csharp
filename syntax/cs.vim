@@ -25,8 +25,9 @@ syn keyword csInterfaceDecleration      interface nextgroup=csIface skipwhite
 syn keyword csRepeat			break continue do for foreach goto return while
 syn keyword csConditional		else if switch
 syn keyword csLabel			case default
-" there's no :: operator in C#
+" :: is usually an error in C#, except for the special case of "global::"
 syn match csOperatorError		display +::+
+syn match csGlobal          display +global::+
 " user labels (see [1] 8.6 Statements)
 syn match   csLabel			display +^\s*\I\i*\s*:\([^:]\)\@=+
 " modifier
