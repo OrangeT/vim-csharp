@@ -41,6 +41,7 @@ function! cs#get_net_compiler(compiler)
 endfunction
 
 function! cs#find_net_solution_file()
-    return globpath(".", "*.sln")
+    " Just consider first match
+    return get(split(globpath(".", "*.sln"), "\n"), 0, "")
 endfunction
 
