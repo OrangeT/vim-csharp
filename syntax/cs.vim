@@ -2,7 +2,6 @@
 " Language:             Microsoft C#
 " Maintainer:           Kian Ryan (kian@orangetentacle.co.uk)
 " Former Maintainer:    Anduin Withers (awithers@anduin.com)
-" Last Change:          2012 Sep 22
 " Filenames:            *.cs
 "
 " REFERENCES:
