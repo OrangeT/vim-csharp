@@ -24,6 +24,7 @@ au BufNewFile,BufRead *.sln compiler msbuild | set filetype=xml
 au BufNewFile,BufRead *.cshtml compiler msbuild | set filetype=cshtml.html syntax=cshtml
 au BufNewFile,BufRead *.aspx compiler msbuild | set filetype=aspx.html syntax=aspx
 au BufNewFile,BufRead *.ascx compiler msbuild | set filetype=aspx.html syntax=aspx
+au BufNewFile,BufRead *.master compiler msbuild | set filetype=aspx.html syntax=aspx
 
 com! -complete=file -nargs=1 MsProjFile :call MsProjFile(<f-args>)
 com! -nargs=1 MsVersion :call MsVersion(<f-args>)
