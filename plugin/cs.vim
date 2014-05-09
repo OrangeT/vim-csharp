@@ -18,6 +18,7 @@ function! IISExpress()
 endfunction
 
 " Set msproj file extensions
+au BufNewFile,BufRead *.cs compiler msbuild
 au BufNewFile,BufRead *.proj compiler msbuild | set filetype=xml
 au BufNewFile,BufRead *.csproj compiler msbuild | set filetype=xml
 au BufNewFile,BufRead *.sln compiler msbuild | set filetype=xml
