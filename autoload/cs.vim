@@ -35,6 +35,7 @@ function! cs#get_net_compiler(compiler)
     else
         for i in ["12","4","3.5","2","1"]
             let msbuild = s:get_net_framework_dir(i) . a:compiler
+            echom msbuild
             if findfile(msbuild) != ""
                 return msbuild
             endif
