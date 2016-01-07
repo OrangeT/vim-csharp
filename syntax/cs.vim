@@ -153,10 +153,6 @@ hi def link csAsync                     Keyword
 hi def link csContextualStatement	Statement
 hi def link csOperatorError		Error
 hi def link csAttribute			PreProc
-
-hi def link csIface                     Type
-hi def link csClass                     Type
-
 hi def link csTodo			Todo
 hi def link csComment			Comment
 
