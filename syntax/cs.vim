@@ -65,7 +65,7 @@ syn keyword csNewDecleration            new nextgroup=csClass skipwhite
 syn match csClass contained       /\<[A-Z][a-z]\w\+/ nextgroup=csGeneric
 syn match csIface contained       /\<I[A-Z][a-z]\w\+/ nextgroup=csGeneric
 " syn region csGeneric start="<" end=">" contains=csIface,csClass
-syn region csEnclosed start="(" end=")" contains=csConstant,csType,csString, csVerbatimString, csCharacter, csNumber,csIface,csClass,csNewDecleration
+syn region csEnclosed start="(" end=")" contains=csConstant,csType,csString, csVerbatimString, csCharacter, csNumber,csIface,csClass,csNewDecleration,csUnspecifiedStatement
 "syn region csInherits start=":" end="{" contains=csIface,csClass
 
 " Attributes
