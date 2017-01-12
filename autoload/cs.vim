@@ -53,8 +53,6 @@ function! cs#get_net_compiler(compiler)
             return msbulid
         endif
     endif
-
-    echom "Unable to find " . a:compiler
 endfunction
 
 function! cs#find_net_solution_file()
