@@ -50,7 +50,7 @@ function! cs#get_net_compiler(compiler)
         " Hail mary test for xbuild
         if executable("xbuild")
             let msbuild = "xbuild"
-            return msbulid
+            return msbuild
         endif
     endif
 endfunction
