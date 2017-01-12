@@ -7,7 +7,7 @@ function! s:get_net_framework_dir(version)
 
     if exists("g:net_framework_top")
         net_framework_top = g:net_framework_top
-    elseif a:version == "12"
+    elseif str2nr(a:version) >= 12
         let net_framework_top = "c:\\progra~2\\MSBuild\\"
     else
         let net_framework_top = "c:\\windows\\Microsoft.NET\\Framework\\"
@@ -23,6 +23,8 @@ function! s:get_net_framework_dir(version)
         return net_framework_top . "v4.0.30319\\"
     elseif a:version == "12"
         return net_framework_top . "12.0\\Bin\\"
+    elseif a:version == "14"
+        return net_framework_top . "14.0\\Bin\\"
     endif
 
 endfunction
@@ -33,7 +35,7 @@ function! cs#get_net_compiler(compiler)
         let msbuild = s:get_net_framework_dir(g:net_framework_version) . a:compiler
         return msbuild
     else
-        for i in ["12","4","3.5","2","1"]
+        for i in ["14","12","4","3.5","2","1"]
             let msbuild = s:get_net_framework_dir(i) . a:compiler
             if findfile(msbuild) != ""
                 return msbuild
