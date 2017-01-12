@@ -35,12 +35,23 @@ function! cs#get_net_compiler(compiler)
         let msbuild = s:get_net_framework_dir(g:net_framework_version) . a:compiler
         return msbuild
     else
-        for i in ["14","12","4","3.5","2","1"]
-            let msbuild = s:get_net_framework_dir(i) . a:compiler
-            if findfile(msbuild) != ""
-                return msbuild
-            endif
-        endfor
+        if executable(a:compiler)
+            let msbuild = a:compiler
+            return msbuild
+        else
+            for i in ["14","12","4","3.5","2","1"]
+                let msbuild = s:get_net_framework_dir(i) . a:compiler . ".exe"
+                if findfile(msbuild) != ""
+                    return msbuild
+                endif
+            endfor
+        endif
+
+        " Hail mary test for xbuild
+        if executable("xbuild")
+            let msbuild = "xbuild"
+            return msbulid
+        endif
     endif
 
     echom "Unable to find " . a:compiler

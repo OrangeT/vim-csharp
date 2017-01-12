@@ -3,9 +3,9 @@
 " Maintainer:	Kian Ryan (kian@orangetentacle.co.uk)
 " Last Change:	2012 Sep 22
 
-if !has("win32")
-  finish
-endif
+"if !has("win32")
+  "finish
+"endif
 
 if exists("current_compiler")
   finish
@@ -28,7 +28,7 @@ else
     let s:build_file = cs#find_net_solution_file()
 endif
 
-execute 'CompilerSet makeprg=' . cs#get_net_compiler("msbuild.exe") . "\\ " 
+execute 'CompilerSet makeprg=' . cs#get_net_compiler("msbuild") . "\\ " 
             \ . "/nologo\\ /clp:Verbosity=quiet\\ /property:GenerateFullPaths=true\\ "
             \ . s:build_file
 
