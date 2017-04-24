@@ -114,7 +114,7 @@ syn region	csRegion matchgroup=csPreCondit start="^\s*#\s*region.*$"
 
 
 
-" Strings and constants
+" Constants
 syn match   csSpecialError	contained "\\."
 syn match   csSpecialCharError	contained "[^']"
 " [1] 9.4.4.4 Character literals
@@ -122,9 +122,6 @@ syn match   csSpecialChar	contained +\\["\\'0abfnrtvx]+
 " unicode characters
 syn match   csUnicodeNumber	+\\\(u\x\{4}\|U\x\{8}\)+ contained contains=csUnicodeSpecifier
 syn match   csUnicodeSpecifier	+\\[uU]+ contained
-syn region  csVerbatimString	start=+@"+ end=+"+ skip=+""+ contains=csVerbatimSpec,@Spell
-syn match   csVerbatimSpec	+@"+he=s+1 contained
-syn region  csString		start=+"+  end=+"+ end=+$+ contains=csSpecialChar,csSpecialError,csUnicodeNumber,@Spell
 syn match   csCharacter		"'[^']*'" contains=csSpecialChar,csSpecialCharError
 syn match   csCharacter		"'\\''" contains=csSpecialChar
 syn match   csCharacter		"'[^\\]'"
@@ -132,6 +129,26 @@ syn match   csNumber		"\<\(0[0-7]*\|0[xX]\x\+\|\d\+\)[lL]\=\>"
 syn match   csNumber		"\(\<\d\+\.\d*\|\.\d\+\)\([eE][-+]\=\d\+\)\=[fFdD]\="
 syn match   csNumber		"\<\d\+[eE][-+]\=\d\+[fFdD]\=\>"
 syn match   csNumber		"\<\d\+\([eE][-+]\=\d\+\)\=[fFdD]\>"
+
+" Strings
+syn region  csString			start=+"+  end=+"+ end=+$+ contains=csSpecialChar,csSpecialError,csUnicodeNumber,@Spell
+" The gymnastics with Internal below is used to highlight only the @, $ or $@
+" that start a special string.
+syn region  csVerbatimString		start=+@"+ end=+"+ contains=csVerbatimSpec
+syn match   csVerbatimSpec      	+@+ contained nextgroup=csVerbatimInternal
+syn region  csVerbatimInternal		start=+"+ end=+"\@=+ skip=+""+ contained contains=csVerbatimQuote,@Spell
+
+syn region  csInterpolatedString	start=+\$"+ end=+"+ end=+$+ contains=csInterpolatedSpec
+syn match   csInterpolatedSpec      	+\$+ contained nextgroup=csInterpolatedInternal
+syn region  csInterpolatedInternal	start=+"+ end=+"\@=+ contained contains=csSpecialChar,csSpecialError,csUnicodeNumber,csInterpolation,@Spell
+
+syn region  csVerbatimInterpolated	start=+\$@"+ end=+"+ contains=csVerbatimInterpolatedSpec
+syn match   csVerbatimInterpolatedSpec	+\$@+ contained nextgroup=csVerbatimInterpolatedInt
+syn region  csVerbatimInterpolatedInt	start=+"+ end=+"\@=+ skip=+""+ contained contains=csVerbatimQuote,csInterpolation,@Spell
+
+syn region  csInterpolation		start=+{+ end=+}+ contains=csType,csTypeDecleration,csStorage,csInterfaceDecleration,csRepeat,csConditional,csLabel,csOperatorError,csGlobal,csLabel,csModifier,csConstant,csException,csUnspecifiedStatement,csUnsupportedStatement,csUnspecifiedKeyword,csTypeOf,csLinq,csAsync,csContextualStatement,csNewDecleration,csClass,csIface,csGeneric,csEnclosed,csInherits,csAttribute,csString,csNumber,csVerbatimString,csInterpString,csVerbatimInterp
+syn match   csVerbatimQuote		+""+ contained
+
 
 " The default highlighting.
 hi def link csType			Type
@@ -158,9 +175,20 @@ hi def link csComment			Comment
 
 hi def link csSpecialError		Error
 hi def link csSpecialCharError		Error
+
 hi def link csString			String
 hi def link csVerbatimString		String
-hi def link csVerbatimSpec		SpecialChar
+hi def link csVerbatimSpec      	SpecialChar
+hi def link csVerbatimInternal		String
+hi def link csInterpolatedString	String
+hi def link csInterpolatedSpec      	SpecialChar
+hi def link csInterpolatedInternal	String
+hi def link csVerbatimInterpolated	String
+hi def link csVerbatimInterpolatedSpec	SpecialChar
+hi def link csVerbatimInterpolatedInt	String
+hi def link csInterpolation		SpecialChar
+hi def link csVerbatimQuote		SpecialChar
+
 hi def link csPreCondit			PreCondit
 hi def link csCharacter			Character
 hi def link csSpecialChar		SpecialChar
