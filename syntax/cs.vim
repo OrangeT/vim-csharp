@@ -43,8 +43,6 @@ syn keyword csUnsupportedStatement	add remove value
 " TODO:
 syn keyword csUnspecifiedKeyword	explicit implicit
 
-syn keyword csTypeOf                    typeof
-
 " Linq Keywords
 syn keyword csLinq                      from where select group into orderby join let in on equals by ascending descending
 
@@ -66,6 +64,7 @@ syn match csClass contained       /\<[A-Z][a-z]\w\+/ nextgroup=csGeneric
 syn match csIface contained       /\<I[A-Z][a-z]\w\+/ nextgroup=csGeneric
 " syn region csGeneric start="<" end=">" contains=csIface,csClass
 "syn region csInherits start=":" end="{" contains=csIface,csClass
+syn region csTypeOf start="typeof(" end=")" contains=csIface,csClass
 
 " Attributes
 syn region csAttribute start="^\s*\[" end="\]\s*" contains=csString, csVerbatimString, csCharacter, csNumber, csType
