@@ -43,7 +43,7 @@ syn keyword csUnsupportedStatement	add remove value
 " TODO:
 syn keyword csUnspecifiedKeyword	explicit implicit
 
-syn keyword csTypeOf                    typeof nextgroup=csEnclosed
+syn keyword csTypeOf                    typeof
 
 " Linq Keywords
 syn keyword csLinq                      from where select group into orderby join let in on equals by ascending descending
@@ -65,7 +65,6 @@ syn keyword csNewDecleration            new nextgroup=csClass skipwhite
 syn match csClass contained       /\<[A-Z][a-z]\w\+/ nextgroup=csGeneric
 syn match csIface contained       /\<I[A-Z][a-z]\w\+/ nextgroup=csGeneric
 " syn region csGeneric start="<" end=">" contains=csIface,csClass
-syn region csEnclosed start="(" end=")" contains=csConstant,csType,csString, csVerbatimString, csCharacter, csNumber,csIface,csClass,csNewDecleration,csUnspecifiedStatement,csLinq
 "syn region csInherits start=":" end="{" contains=csIface,csClass
 
 " Attributes
