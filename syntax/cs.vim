@@ -46,7 +46,7 @@ syn keyword csUnspecifiedKeyword	explicit implicit
 syn keyword csTypeOf                    typeof nextgroup=csEnclosed
 
 " Linq Keywords
-syn keyword csLinq                      from where select group into orderby join let in on equals by ascending descending
+syn keyword csLinq                      ascending by descending equals from group in into join let on orderby select where
 
 " Async Keywords
 syn keyword csAsync                     async await
