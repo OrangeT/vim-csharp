@@ -26,7 +26,7 @@ syn keyword csConditional		else if switch
 syn keyword csLabel			case default
 " :: is usually an error in C#, except for the special case of "global::"
 syn match csOperatorError		display +::+
-syn match csGlobal          display +global::+
+syn match csGlobal                      display +global::+
 " user labels (see [1] 8.6 Statements)
 syn match   csLabel			display +^\s*\I\i*\s*:\([^:]\)\@=+
 " modifier
@@ -56,7 +56,7 @@ syn match csContextualStatement	/\<yield[[:space:]\n]\+\(return\|break\)/me=s+5
 syn match csContextualStatement	/\<partial[[:space:]\n]\+\(class\|struct\|interface\)/me=s+7
 syn match csContextualStatement	/\<\(get\|set\);/me=s+3
 syn match csContextualStatement	/\<\(get\|set\)[[:space:]\n]*{/me=s+3
-syn match csContextualStatement /\<where\>[^:]\+:/me=s+5
+syn match csContextualStatement	/\<where\>[^:]\+:/me=s+5
 
 "New Declerations
 syn keyword csNewDecleration            new nextgroup=csClass skipwhite
