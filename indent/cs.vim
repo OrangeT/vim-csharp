@@ -12,6 +12,13 @@ let b:did_indent = 1
 
 setlocal indentexpr=GetCSIndent(v:lnum)
 
+function! s:IsCompilerDirective(line)
+  return a:line =~? '^\s*#'
+endf
+
+function! s:IsAttributeLine(line)
+  return a:line =~? '^\s*\[[A-Za-z]' && a:line =~? '\]$'
+endf
 
 function! GetCSIndent(lnum) abort
 
@@ -24,10 +31,9 @@ function! GetCSIndent(lnum) abort
   endif
 
   " Compiler directives use zero indent if so configured.
-  let is_first_col_macro = this_line =~? '^\s*#' && stridx(&l:cinkeys, '0#') >= 0
+  let is_first_col_macro = s:IsCompilerDirective(this_line) && stridx(&l:cinkeys, '0#') >= 0
 
-  " If previous_line is an attribute line:
-  if !is_first_col_macro && previous_line =~? '^\s*\[[A-Za-z]' && previous_line =~? '\]$'
+  if !is_first_col_macro && s:IsAttributeLine(previous_code_line)
     let ind = indent(a:lnum - 1)
     return ind
   else
