@@ -23,8 +23,11 @@ function! GetCSIndent(lnum) abort
     return 0
   endif
 
+  " Compiler directives use zero indent if so configured.
+  let is_first_col_macro = this_line =~? '^\s*#' && stridx(&l:cinkeys, '0#') >= 0
+
   " If previous_line is an attribute line:
-  if previous_line =~? '^\s*\[[A-Za-z]' && previous_line =~? '\]$'
+  if !is_first_col_macro && previous_line =~? '^\s*\[[A-Za-z]' && previous_line =~? '\]$'
     let ind = indent(a:lnum - 1)
     return ind
   else
