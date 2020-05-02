@@ -96,6 +96,7 @@ syn keyword csXmlTag		contained ThreadingSafetyStatement Docs devdoc example ove
 syn keyword csXmlTag		contained threadsafe value internalonly nodoc exception param permission platnote
 syn keyword csXmlTag		contained seealso b c i pre sub sup block code note paramref see subscript superscript
 syn keyword csXmlTag		contained list listheader item term description altcompliant altmember
+syn keyword csXmlTag		contained include inheritdoc para typeparam typeparamref
 
 syn cluster xmlTagHook add=csXmlTag
 
