@@ -30,7 +30,7 @@ endif
 
 execute 'CompilerSet makeprg=' . cs#get_net_compiler("msbuild") . "\\ " 
             \ . "/nologo\\ /clp:Verbosity=quiet\\ /property:GenerateFullPaths=true\\ "
-            \ . s:build_file
+            \ . "\"" . s:build_file . "\""
 
 
 
